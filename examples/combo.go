@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gosplat"
+	"github.com/agonopol/gosplat"
 )
 
 func Combochart() {
