@@ -28,15 +28,15 @@ func Linechart() {
 ```
 ## Supported Charts:
 
--barchart
--candlestick
--columnchart
--combochart
--linechart
--piechart
--scatter
--table
--timeseries
+* barchart
+* candlestick
+* columnchart
+* combochart
+* linechart
+* piechart
+* scatter
+* table
+* timeseries
 
 
 
