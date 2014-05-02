@@ -6,7 +6,7 @@ import (
 
 func Combochart() {
 	f := gosplat.NewFrame("Combochart Stick Example Frame")
-	v := gosplat.NewVisualize()
+	v := gosplat.NewChart()
 	v.Append(map[string]interface{}{"Month": "2004/05", "Bolivia": 165, "Ecuador": 938, "Average": (165 + 938) / 2})
 	v.Append(map[string]interface{}{"Month": "2004/06", "Bolivia": 135, "Ecuador": 1120, "Average": (135 + 1120) / 2})
 	v.Append(map[string]interface{}{"Month": "2004/07", "Bolivia": 157, "Ecuador": 1167, "Average": (157 + 1167) / 2})

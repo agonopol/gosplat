@@ -11,63 +11,63 @@ import (
 	 "os"
 )
 
-
-type Visualize struct {
+//
+type Chart struct {
 	data [] interface{}
 }
 
-func NewVisualize() *Visualize {
-	return &Visualize{make([]interface{}, 0)}
+func NewChart() *Chart {
+	return &Chart{make([]interface{}, 0)}
 }
 
-func (v *Visualize) Append(item interface{}) {
+func (v *Chart) Append(item interface{}) {
 	v.data = append(v.data, item)
 }
 
-func (v *Visualize) plot(t string, options []map[string] interface{}) map[string] interface{} {
+func (v *Chart) plot(t string, options []map[string] interface{}) map[string] interface{} {
 	if len(options) > 0 {
 		return map[string]interface{}{"type": t, "data": v.data, "options": options[0]}
 	}
 	return map[string]interface{}{"type": t, "data": v.data, "options": make(map[string] interface{})}
 }
 
-func (v *Visualize) Linechart(options ... map[string] interface{}) map[string] interface{}{
+func (v *Chart) Linechart(options ... map[string] interface{}) map[string] interface{}{
 	return v.plot("Linechart", options)
 }
 
-func (v *Visualize) Timeseries(options ... map[string] interface{}) map[string] interface{}{
+func (v *Chart) Timeseries(options ... map[string] interface{}) map[string] interface{}{
 	return v.plot("Timeseries", options)
 }
 
-func (v *Visualize) Table(options ... map[string] interface{}) map[string] interface{}{
+func (v *Chart) Table(options ... map[string] interface{}) map[string] interface{}{
 	return v.plot("Table", options)
 }
   
-func (v *Visualize) Scatter(options ... map[string] interface{}) map[string] interface{}{
+func (v *Chart) Scatter(options ... map[string] interface{}) map[string] interface{}{
 	return v.plot("Scatter", options)
 }
 
-func (v *Visualize) Candlestick(options ... map[string] interface{}) map[string] interface{}{
+func (v *Chart) Candlestick(options ... map[string] interface{}) map[string] interface{}{
 	return v.plot("Candlestick", options)
 }
 
-func (v *Visualize) Barchart(options ... map[string] interface{}) map[string] interface{}{
+func (v *Chart) Barchart(options ... map[string] interface{}) map[string] interface{}{
 	return v.plot("Barchart", options)
 }
 
-func (v *Visualize) Columnchart(options ... map[string] interface{}) map[string] interface{}{
+func (v *Chart) Columnchart(options ... map[string] interface{}) map[string] interface{}{
 	return v.plot("Columnchart", options)
 }
 
-func (v *Visualize) Combochart(options ... map[string] interface{}) map[string] interface{}{
+func (v *Chart) Combochart(options ... map[string] interface{}) map[string] interface{}{
 	return v.plot("Combochart", options)
 }
 
-func (v *Visualize) Treemap(options ... map[string] interface{}) map[string] interface{}{
+func (v *Chart) Treemap(options ... map[string] interface{}) map[string] interface{}{
 	return v.plot("Treemap", options)
 }
 
-func (v *Visualize) Piechart(options ... map[string] interface{}) map[string] interface{}{
+func (v *Chart) Piechart(options ... map[string] interface{}) map[string] interface{}{
 	return v.plot("Piechart", options)
 }
 

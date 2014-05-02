@@ -6,7 +6,7 @@ import (
 
 func Scatter() {
 	f := gosplat.NewFrame("Scatter Stick Example Frame")
-	v := gosplat.NewVisualize()
+	v := gosplat.NewChart()
 	v.Append(map[string]interface{}{"x": 100, "thing": 20, "thong": 11})
 	v.Append(map[string]interface{}{"x": 200, "thing": 24, "thong": 19})
 	v.Append(map[string]interface{}{"x": 300, "thing": 24, "thong": 19})
