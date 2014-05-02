@@ -12,7 +12,7 @@ go get github.com/agonopol/gosplat
 import "github.com/agonopol/gosplat"
 
 ## Example:
-
+```golang
 func Linechart() {
 	f := gosplat.NewFrame("Linechart Example Frame")
 	v := gosplat.NewChart()
@@ -25,26 +25,18 @@ func Linechart() {
 		panic(err)
 	}
 }
-
+```
 ## Supported Charts:
 
-barchart
-
-candlestick
-
-columnchart
-
-combochart
-
-linechart
-
-piechart
-
-scatter
-
-table
-
-timeseries
+-barchart
+-candlestick
+-columnchart
+-combochart
+-linechart
+-piechart
+-scatter
+-table
+-timeseries
 
 
 
