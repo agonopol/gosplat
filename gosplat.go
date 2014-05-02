@@ -11,15 +11,18 @@ import (
 	 "os"
 )
 
-//
+// Chart represents one chart in the frame
 type Chart struct {
 	data [] interface{}
 }
 
+// NewChart greates and initializes an empty Chart
 func NewChart() *Chart {
 	return &Chart{make([]interface{}, 0)}
 }
 
+// Append accumulates datapoints for the chart
+// Depending on the type of chart you're planning to make Append takes iether a map[string]interface{} or []interface{}
 func (v *Chart) Append(item interface{}) {
 	v.data = append(v.data, item)
 }
@@ -101,15 +104,19 @@ func newView(title string, data map[string] interface{}, height string) (*view, 
 	return v, nil
 }
 
+// Row allows to put two or three charts in one div, horizontally aligned as a grid
 type Row struct {
 	Title string `json:"title"`
 	Visualizations []*view	
 }
 
+// NewRow you Creates a new empty Row
 func NewRow(title string) *Row {
 	return &Row{title, make([]*view, 0)}
 }
     
+// Append adds a graphed chart to a Row
+// Currently only up to 3 rows are recommended, as more won't fit on a page 
 func (r *Row) Append(title string, viz map[string] interface{}, height ... string) error {
         if len(r.Visualizations) == 3 {
             return fmt.Errorf("Only up to 3 graphs per row for now")
@@ -146,20 +153,26 @@ func (r *Row) cols() (string) {
 		return "grid_12"
 	}
 }     
-			
+		
+// Frame holds a series of rows/charts in one page	
 type Frame struct {
 	title string
 	rows []*Row
 }
 
+
+// NewFrame Creates a new titled frame
 func NewFrame(title string) *Frame{
 	return &Frame{title, make([]*Row, 0)}
 }
 
+// AppendRow adds a Row in sequence
 func (f *Frame) AppendRow(row *Row) {
 	f.rows = append(f.rows, row)
 }
 
+
+// Append adds a chart with height of the chart as an optinal argument
 func (f *Frame) Append(title string, v map[string]interface{}, height ... string) {
 	row := NewRow("")
 	if (len(height) > 0) {
@@ -169,7 +182,8 @@ func (f *Frame) Append(title string, v map[string]interface{}, height ... string
 	}
 	f.rows = append(f.rows, row)
 }
-	 
+
+// Html generates the page
 func (f *Frame) Html() (*bytes.Buffer, error) {
 	t := template.New("go2splat")
 	t, err := t.Parse(HTML)
@@ -182,15 +196,7 @@ func (f *Frame) Html() (*bytes.Buffer, error) {
 	return out, err
 }
 
-
-//     def tmp_write_markup(self):
-//         if not os.path.exists(os.path.join(os.getcwd(), "tmp")):
-//             os.makedirs(os.path.join(os.getcwd(), "tmp"))
-//         f = tempfile.NamedTemporaryFile(dir=os.path.join(os.getcwd(), "tmp"), suffix=".html", delete=None)
-//         f.write(self.markup().__str__())
-//         f.close()
-//         return f
-
+// Preview generates the page and opens it with the default browser
 func (f *Frame) Preview() error {
 	html, err := f.Html()
 	
