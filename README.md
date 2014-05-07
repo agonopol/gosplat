@@ -6,17 +6,17 @@ Easily generate html/js graphs in go with dygraphs/gocharts etc...
 gosplat generates an html file with your and js embded in the page to plot the data.
 ## Installation:
 
-go get github.com/agonopol/gosplat
+`go get github.com/agonopol/gosplat`
 
 ## Import:
 
-import "github.com/agonopol/gosplat"
+`import "github.com/agonopol/gosplat"`
 
 ## Example:
 
 <img src="https://raw.githubusercontent.com/agonopol/gosplat/master/examples/example.png"  width="673" height="287"/>
 
-```golang
+```go
 func Linechart() {
 	//Create a frame to put charts in
 	f := gosplat.NewFrame("Linechart Example Frame")
