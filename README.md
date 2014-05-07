@@ -37,7 +37,15 @@ func Linechart() {
 	if err != nil {
 		panic(err)
 	}
+	
+	//Html returns bytes.Buffer of the html
+	buffer, err := f.Html()
+	if err != nil {
+		panic(err)
+	}
+	println(buffer.String())
 }
+
 ```
 
 
