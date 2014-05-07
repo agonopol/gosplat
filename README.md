@@ -4,6 +4,8 @@ gosplat
 Easily generate html/js graphs in go with dygraphs/gocharts etc...
 
 gosplat generates an html file with your and js embded in the page to plot the data.
+
+More documenation about google charts: https://developers.google.com/chart/
 ## Installation:
 
 `go get github.com/agonopol/gosplat`
